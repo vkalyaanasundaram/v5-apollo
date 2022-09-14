@@ -1,0 +1,169 @@
+// CSS for the Hero component in components/Hero.tsx.
+
+@import "../variables";
+
+// .hero {
+// 	background-color: #ffffffba;
+// 	background-position: 48% 72%;
+// 	background-size: cover;
+// 	background-repeat: no-repeat;
+// 	color: $color-white;
+//     padding: 13em 0 9em;
+//     position: relative;
+//     // height: 76vh;
+// 	height: 60vh;
+// }
+
+.hero {
+    background-color: rgba(255, 255, 255, 0.7294117647);
+    background-position: 48% 72%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 4em 0 9em;
+    position: relative;
+    max-width: 1800px;
+    flex: auto;
+    /* margin-top: 7rem; */
+    margin-left: auto;
+    margin-right: auto;
+	height: 100vh;
+    position: relative;
+    display: block;
+    position: relative;
+    border: 2rem solid white;
+}
+
+
+.wrap {
+	margin: 0 auto;
+	// max-width: $content-width-extended;
+max-width: 1725px;
+	overflow: auto;
+	padding: 0 10px;
+	position: relative;
+	z-index: 2;
+ 
+}
+
+@media screen and (min-width: $content-width) {
+	.wrap {
+		padding: 0;
+	}
+}
+
+.hero::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color:rgb(211 220 230 / 70%);
+	opacity: 0.8;
+	z-index: 1;
+}
+
+.hero a {
+	color: $color-white;
+}
+
+.children a:focus,
+.children a:hover {
+	color: darken($color-white, 25);
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	.hero h1 {
+		max-width: 80%;
+	}
+
+	.intro {
+		margin-bottom: 2%;
+		max-width: 50%;
+	}
+}
+
+
+@media screen and (max-width: $breakpoint-medium) {
+	.hero  {
+		height: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+	margin-bottom: 2rem;
+	color: $color-white;
+	background-color: $color-primary;
+	h1 {
+	  color: $color-white;
+	}
+	// @media (min-width: $breakpoint-small) {
+	//   margin-bottom: 10rem;
+	// }
+  }
+  
+  .text,
+  .image {
+	margin: auto;
+	text-align: center;
+  }
+  
+  .text {
+	width: 100%;
+	max-width: 82rem;
+	// padding: 8.25rem 0;
+	padding:  2.25rem 0;
+   
+  }
+  
+  .title {
+	line-height: 1.25;
+  }
+  
+  .byline {
+	font-weight: $font-weight-bold;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+  }
+  
+  .hero {
+	display: block;
+	position: relative;
+  
+	&:before {
+	  content: ' ';
+	  position: absolute;
+	  height: 50%;
+	  width: 100%;
+	  background-color: $color-white;
+	  bottom: 0;
+	  left: 0;
+	  z-index: 0;
+	}
+  }
+  
+  .featured-image {
+	margin: 0;
+  }
+  
+
+
+  .special:before {
+	content: '';
+		background: red;
+	  }
+
+
+	  

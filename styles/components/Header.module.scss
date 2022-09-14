@@ -1,0 +1,265 @@
+// CSS for the Header component in components/Header.tsx.
+
+@import "../variables";
+.menu li:nth-child(5) {
+  display: none;
+}
+.site-title {
+  margin-bottom: 0;
+  @media screen and ( max-width: $breakpoint-small) {
+height:0;
+  display: none;
+  }
+}
+
+.site-title a {
+  color: $color-black;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.mobileBtn {
+  position: relative;
+  background-color: #950a49;
+  text-align: center;
+  display: flex;
+  font-weight: bolder;
+  align-items: center;
+  padding: 1rem 3rem;
+  border: 1px solid WHITE;
+  margin: 1rem 3rem;
+  height: 50px;
+}
+.mobileBtn a {
+  font-size: 15px;
+}
+.customhead {
+  background-color: #fff;
+  border-top: 1px solid $color-white;
+  border-bottom: 1px solid $color-white;
+}
+// .title-wrap {
+//   // padding: 20px 0 0;
+//   //	background-image: url('/public/images/_Kapitus_Logo_white.webp');
+// }
+.bghead {
+  background-color: $color-primary;
+  border-top: 1px solid $color-white;
+//   border-bottom: 1px solid $color-white;
+}
+.transparent {
+  background-color: transparent;
+  background: 0 0;
+  position: fixed;
+  z-index: 501;
+  width: 100%;
+}
+.topHeader {
+  display: block;
+}
+.topHeader {
+  background-color: $color-primary;
+  border-top: none;
+  z-index: 10;
+  min-height: 30px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: -1px;
+  display: flex;
+  padding: 0 46px;
+}
+.twitter a:before {
+  background-image: url(/images/twitter-18.webp);
+  background-repeat: no-repeat;
+}
+
+.linkedin a:before {
+  background-image: url(/images/linkedin.webp);
+  background-repeat: no-repeat;
+}
+
+.facebook a:before {
+  background-image: url(/images/facebook3.webp);
+  background-repeat: no-repeat;
+}
+
+.instagram a:before {
+  background-image: url(/images/instagram3.webp);
+  background-repeat: no-repeat;
+}
+.youtube a:before {
+  background-image: url(/images/youtube3.webp);
+  background-repeat: no-repeat;
+}
+.topList {
+  display: flex;
+}
+.topList li a:before {
+  content: '';
+  color: #d7dcdf;
+  width: 27px;
+  height: 22px;
+  margin-top: 6.4px;
+  display: inline-block;
+}
+@media screen and ( max-width: $breakpoint-small) {
+  .topHeader {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $breakpoint-small) {
+  .title-wrap {
+    padding: 20px 0;
+  }
+}
+
+.title-wrap .description {
+  color: $color-mid-gray;
+  font-family: $font-family;
+  font-size: 0.8em;
+  margin-top: 0.1em;
+}
+
+.wrap {
+  padding: 0 15px;
+}
+
+.logoContainer{
+	display: inline-flex;
+}
+// .logoContainer {
+//   position: relative;
+//   height: 70px;
+  
+//   section {
+//     height: 0px;
+//   }
+// }
+.logoIcon {
+  height: 75px !important;
+  background-repeat: no-repeat;
+  width: 280px !important;
+  position: relative;
+}
+.customlogoIcon {
+  height: 45px !important;
+  background-repeat: no-repeat;
+  width: 280px !important;
+  position: relative;
+}
+.partnerLogo {
+  height: 60px !important;
+  background-repeat: no-repeat;
+  width: 178px !important;
+  position: relative;
+}
+@media screen and (min-width: $breakpoint-small) {
+  .wrap {
+    align-items: center;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $content-width-extended;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .menu {
+    display: none;
+  }
+
+//   .logoContainer {
+//     position: relative;
+//     height: 70px;
+//   }
+  .logoIcon {
+    position: absolute;
+    clip: rect(0, 50px, 200px, 0);
+    height: 75px;
+    background-repeat: no-repeat;
+    left: 10px;
+    top: 0;
+  }
+  .desktopLogo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $content-width-extended) {
+  .wrap {
+    padding: 0;
+  }
+}
+
+.menu ul {
+  padding-left: 0;
+}
+
+.menu li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 1em;
+}
+
+.custommenu li:first-of-type {
+  padding-left: 0;
+}
+
+.custommenu ul {
+  padding-left: 0;
+}
+
+.custommenu li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 4em;
+}
+
+@media screen and (min-width: $breakpoint-small) {
+  .menu li:first-of-type {
+    padding-left: 1em;
+  }
+}
+
+.menu a {
+  color: $color-white;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+}
+.custommenu a {
+  color: $color-primary;
+}
+.menu a:focus,
+.menu a:hover {
+  color: $color-mid-blue;
+  text-decoration: underline;
+}
+
+.menu a:active {
+  color: $color-white;
+  text-decoration: underline;
+}
+
+.menu a:global(.button) {
+  background-color: $color-light-green;
+  display: inline-block;
+  color: $color-white;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+.custommenu a:global(.button) {
+  background-color: $color-primary;
+  display: inline-block;
+  color: $color-white;
+  padding: 7px 37px;
+}
+
+.menu a:global(.button):focus,
+.menu a:global(.button):hover {
+  background-color: lighten($color-primary, 10);
+  color: $color-white;
+}
