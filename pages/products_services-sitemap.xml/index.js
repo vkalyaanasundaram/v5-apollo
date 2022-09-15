@@ -3,15 +3,17 @@ import Footer from "../../components/Footer";
 import styles from '../../styles/pages/posts.module.scss';
 
 export default function ProductsServiceSitemap({data}) {
+    // console.log(data);
     return (
         <>
             <Header />
             <main className="content content-page my-10">
                 <p className={styles.container}>
                     {data?.map((val, key) => (
+                        console.log(val.slug),
                         <div key={key} className="mx-5">
-                            <div>loc: {`${process.env.NEXT_PUBLIC_URL}/blog/${data[key].slug}`}</div>
-                            <sup>modified: {data[key].modified}</sup>
+                             <div>loc: {`${process.env.NEXT_PUBLIC_URL}/blog/${val.slug}`}</div>
+                            <sup>modified: {val.modified}</sup>
                         </div>
                     ))}
                 </p>
