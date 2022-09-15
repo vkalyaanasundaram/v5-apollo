@@ -12,8 +12,8 @@ export default function PostSitemapOne({ data }) {
                 <p className={styles.container}>
                     {data.map((val, key) => (
                         <div key={key} className="mx-5">
-                            <div>loc: {`${process.env.NEXT_PUBLIC_URL}/blog/${data[key].slug}`}</div>
-                            <sup>modified: {data[key].modified}</sup>
+                            <div>loc: {`${process.env.NEXT_PUBLIC_URL}/blog/${val.slug}`}</div>
+                            <sup>modified: {val.modified}</sup>
                         </div>
                     ))}
                 </p>
@@ -26,7 +26,7 @@ export default function PostSitemapOne({ data }) {
 export async function getStaticProps() {
 
     const postResponse = await fetch(
-        "https://ada-kapitus.com/wp-json/wp/v2/posts?per_page=50"
+        "https://ada-kapitus.com/wp-json/wp/v2/posts?per_page=10"
     );
 
     const post = await postResponse.json();
