@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-// import styles from '../../styles/Home.module.css'
 import { client } from '../../lib/apollo';
 import { gql } from "@apollo/client";
 import Blog from "../../components/Blog"
@@ -40,20 +39,8 @@ export default function Home({ posts,categories }) {
                             <Category categories={categories?.nodes} />
                         </div>
                     </div>
-
                 </main>
                 <Footer />
-
-                {/* <main className={styles.main}>
-                {posts.map((value, key) => (
-                    <div key={key}>
-                        <div>{value?.title}</div>
-                        <div>{value?.content}</div>
-                    </div>
-                ))}
-            </main> */}
-
-
             </div>
         </>
     )
@@ -61,15 +48,10 @@ export default function Home({ posts,categories }) {
 
 export async function getStaticProps() {
 
-    // Paste your GraphQL query inside of a gql tagged template literal
-    // const GET_POSTS = 
-    // Here we make a call with the client and pass in our query string to the 
-    // configuration objects 'query' property
     const response = await client.query({
         query: BLOG_QRY
     });
-    // Once we get the response back, we need to traverse it to pull out the 
-    // data we want to pass into the HomePage
+
     const posts = response?.data?.posts?.nodes;
     const categories = response.data?.categories
 

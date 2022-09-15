@@ -3,9 +3,12 @@ import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import { client } from '../lib/apollo';
+import { gql } from "@apollo/client";
 
-export default function Home() {
+export default function Home({ page }) {
   const [transparent, setTransparent] = useState(false)
 
   return (
@@ -17,49 +20,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main className="mx-5 my-10">
+        <>
+        <Hero
+          title="Get Started Some Loans"
+          buttonText="GET STARTED"
+          buttonURL="https://faustjs.org"
+          button2Text={null}
+          button2URL={null}
+          bgImage="https://res.cloudinary.com/dsfu88hae/image/upload/v1647389853/NewMedia/linkedin-sales-solutions-VtKoSy_XzNU-unsplash_vrlzaa.webp"
+          id={styles.home_hero} 
+     
+          slug="home"
+        >
+        </Hero>
+          <div> {page.title}</div>
+          <div dangerouslySetInnerHTML={{ __html: page.content ?? "" }} />
+        </>
       </main>
 
-    <Footer />
+      <Footer />
     </>
-    // </div>
   )
+}
+
+export async function getStaticProps() {
+  const GET_HOME_PAGE = gql`{
+    page(id: "/home", idType: URI) {
+      title
+      content
+    }
+  }`
+
+  const response = await client.query({
+    query: GET_HOME_PAGE
+  });
+
+  const page = response?.data?.page;
+
+  return {
+    props: {
+      page,
+    }
+  }
+
 }

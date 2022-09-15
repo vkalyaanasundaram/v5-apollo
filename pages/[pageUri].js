@@ -1,25 +1,29 @@
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
 import Head from 'next/head';
 import Image from 'next/image';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import MediaCenter from "../components/MediaCenter";
+import Hero from "../components/Hero";
 import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
+import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 
 
-export default function Page({ data }) {
+export default function Page({ data, pressReleases, pressCoverages }) {
+    const slug = data?.slug;
     return (
         <>
             <Header />
             <Hero
-            title=''
-            // title={page?.title() }
-            bgImage={data?.featuredImage?.node.sourceUrl} />
+                title=''
+                // title={page?.title() }
+                bgImage={data?.featuredImage?.node.sourceUrl} />
             {/* <PostLargeImage imageSrcUrl={data?.featuredImage?.node?.sourceUrl} /> */}
             <h1>{data?.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+            {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
             <Footer />
         </>
     )
@@ -44,14 +48,41 @@ export async function getStaticProps(context) {
             }
           }
         }
+        pressReleases(first: 100) {
+            nodes {
+                slug
+                title
+                uri
+                featuredImage {
+                   node {
+                     sourceUrl
+                   }
+                }
+            }
+        }
+        pressCoverages(first: 300) {
+            nodes {
+              title
+              slug
+              uri
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+        }
       }
   `;
     const response = await client.query({
         query: GET_PAGE
     });
+
     return {
         props: {
-            data: response?.data?.page
+            data: response?.data?.page,
+            pressReleases: response?.data?.pressReleases,
+            pressCoverages: response?.data?.pressCoverages,
         }
     }
 }
