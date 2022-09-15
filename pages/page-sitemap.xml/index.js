@@ -29,7 +29,7 @@ export default function PageSitemap({ data }) {
 export async function getStaticProps() {
 
     const postResponse = await fetch(
-        "https://kapstaging.com/wp-json/wp/v2/pages?per_page=50"
+        "https://kapstaging.com/wp-json/wp/v2/pages?per_page=20"
     );
 
     const post = await postResponse.json();

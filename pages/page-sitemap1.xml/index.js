@@ -24,7 +24,7 @@ export default function ProductsServiceSitemap({data}) {
 export async function getStaticProps() {
 
     const postResponse = await fetch(
-        "https://kapstaging.com/wp-json/wp/v2/pages?per_page=50&offset=50"
+        "https://kapstaging.com/wp-json/wp/v2/pages?per_page=10&offset=50"
     );
 
     const post = await postResponse.json();
