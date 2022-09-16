@@ -21,7 +21,7 @@ export default function PageSitemap({ data }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const postResponse = await fetch(
         "https://kapstaging.com/wp-json/wp/v2/pages?_fields[]=link&_fields[]=modified&per_page=100"
