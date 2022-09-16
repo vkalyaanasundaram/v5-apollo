@@ -102,11 +102,11 @@ export default function ServerSitemap() {
                 <a>{process.env.NEXT_PUBLIC_URL}/faqs-sitemap.xml</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/press_coverage-sitemap.xml">
                 <a>{process.env.NEXT_PUBLIC_URL}/press_coverage-sitemap.xml</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/guide-sitemap.xml">
                 <a>{process.env.NEXT_PUBLIC_URL}/guide-sitemap.xml</a>
