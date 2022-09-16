@@ -27,7 +27,7 @@ export default function PostSitemapOne({ data }) {
 export async function getStaticProps() {
 
     const postResponse = await fetch(
-        "https://ada-kapitus.com/wp-json/wp/v2/posts?_fields[]=link&_fields[]=modified&per_page=100"
+        "https://ada-kapitus.com/wp-json/wp/v2/posts?_fields[]=link&_fields[]=modified&per_page=100&offset=200"
     );
 
     const post = await postResponse.json();
