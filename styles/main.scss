@@ -4,7 +4,8 @@
 @import "~tailwindcss/utilities";
 @import "variables";
 @import "typography";
-
+@import '~@wordpress/block-library/build-style/style.css';
+@import '~@wordpress/block-library/build-style/theme.css';
 
 body {
 	color: $color-black;
