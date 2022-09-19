@@ -25,7 +25,7 @@ export default function ProductsServiceSitemap({ data }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const postResponse = await fetch(
         "https://ada-kapitus.com/wp-json/wp/v2/team_members?per_page=50"
