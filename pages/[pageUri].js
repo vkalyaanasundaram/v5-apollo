@@ -16,14 +16,16 @@ export default function Page({ data, pressReleases, pressCoverages }) {
   return (
     <>
       <Header />
-      {data?.featuredImage?.node.sourceUrl && (
-        <Hero
-          title=''
-          bgImage={data?.featuredImage?.node.sourceUrl} />
-      )}
-      <h1>{data?.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data?.content }} />
-      {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
+      <section className='my-10'>
+        {data?.featuredImage?.node.sourceUrl && (
+          <Hero
+            title=''
+            bgImage={data?.featuredImage?.node.sourceUrl} />
+        )}
+        <h1>{data?.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+        {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
+      </section>
       <Footer />
     </>
   )
