@@ -26,7 +26,7 @@ export default function PressRelease({ data }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const postResponse = await fetch(
         "https://ada-kapitus.com/wp-json/wp/v2/press_releases?per_page=100"
