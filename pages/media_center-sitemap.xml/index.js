@@ -27,7 +27,7 @@ export default function MediaCenterSitemap({ data }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const postResponse = await fetch(
         "https://ada-kapitus.com/wp-json/wp/v2/media_center?per_page=50"
