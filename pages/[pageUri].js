@@ -12,30 +12,30 @@ import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 
 export default function Page({ data, pressReleases, pressCoverages }) {
-    const slug = data?.slug;
-    return (
-        <>
-            <Header />
-            <Hero
-                title=''
-                // title={page?.title() }
-                bgImage={data?.featuredImage?.node.sourceUrl} />
-            {/* <PostLargeImage imageSrcUrl={data?.featuredImage?.node?.sourceUrl} /> */}
-            <h1>{data?.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: data?.content }} />
-            {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
-            <Footer />
-        </>
-    )
+  const slug = data?.slug;
+  return (
+    <>
+      <Header />
+      {data?.featuredImage?.node.sourceUrl && (
+        <Hero
+          title=''
+          bgImage={data?.featuredImage?.node.sourceUrl} />
+      )}
+      <h1>{data?.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+      {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
+      <Footer />
+    </>
+  )
 }
 
 export async function getStaticProps(context) {
 
-    const { params: { pageUri } } = context;
-    const pageURI = context.params.pageUri;
+  const { params: { pageUri } } = context;
+  const pageURI = context.params.pageUri;
 
 
-    const GET_PAGE = gql`
+  const GET_PAGE = gql`
     {
         page(id: "${pageURI}", idType: URI) {
           title
@@ -74,23 +74,23 @@ export async function getStaticProps(context) {
         }
       }
   `;
-    const response = await client.query({
-        query: GET_PAGE
-    });
+  const response = await client.query({
+    query: GET_PAGE
+  });
 
-    return {
-        props: {
-            data: response?.data?.page,
-            pressReleases: response?.data?.pressReleases,
-            pressCoverages: response?.data?.pressCoverages,
-        }
+  return {
+    props: {
+      data: response?.data?.page,
+      pressReleases: response?.data?.pressReleases,
+      pressCoverages: response?.data?.pressCoverages,
     }
+  }
 }
 
 export async function getStaticPaths() {
-    return {
-        paths: [],
-        fallback: true,
-        // fallback: false
-    };
+  return {
+    paths: [],
+    fallback: true,
+    // fallback: false
+  };
 }
