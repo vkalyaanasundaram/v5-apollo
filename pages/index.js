@@ -35,7 +35,6 @@ export default function Home({ page }) {
             slug="home"
           >
           </Hero>
-          {/* <div> {page.title}</div> */}
           <div dangerouslySetInnerHTML={{ __html: page.content ?? "" }} />
         </>
       </main>
