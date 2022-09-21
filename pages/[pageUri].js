@@ -16,7 +16,7 @@ export default function Page({ data, pressReleases, pressCoverages }) {
   return (
     <>
       <Header />
-      <section className='my-10'>
+      <section className='my-10 mx-5'>
         {data?.featuredImage?.node.sourceUrl && (
           <Hero
             title=''
@@ -93,6 +93,5 @@ export async function getStaticPaths() {
   return {
     paths: [],
     fallback: true,
-    // fallback: false
   };
 }
