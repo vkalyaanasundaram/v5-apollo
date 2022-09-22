@@ -21,7 +21,7 @@ export default function Example() {
     let params = UtmParams(asPath)
 
     return (
-        <div
+        <motion.div
             initial=""
             animate={isOpen ? "open" : "closed"}
             custom={height}
@@ -48,7 +48,7 @@ export default function Example() {
             </div>
             <MenuToggle toggle={() => toggleOpen()} />
             <Navigation toggle={() => toggleOpen()} />
-        </div>
+        </motion.div>
 
         // <div>Example</div>
     )
