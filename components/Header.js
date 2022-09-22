@@ -7,6 +7,7 @@ import Linkedin from './icons/Facebook'
 import Youtube from './icons/Twitter'
 import Facebook from './icons/Facebook'
 import Instagram from './icons/Facebook'
+import Example from "./MobileMenu/Example"
 
 export default function Header() {
     return (
@@ -113,7 +114,7 @@ export default function Header() {
                 </div>
                 {/* MOBILE MENU ITEMS */}
             </header>
-            {/* <Example />  */}
+            <Example />
         </>
     )
 }
