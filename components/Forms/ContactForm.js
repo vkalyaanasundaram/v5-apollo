@@ -6,7 +6,7 @@ import { contactstate, connect, contactusForm } from "./FormElements/Variables"
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { Base64 } from 'js-base64'
 import Cross from "../Timesolid";
-import styles from 'scss/components/PopUpGetStarted.module.scss';
+import styles from '../../styles/components/PopUpGetStarted.module.scss';
 
 
 function Contactform({

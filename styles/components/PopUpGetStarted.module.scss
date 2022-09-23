@@ -1,0 +1,178 @@
+@import "../variables";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width:100%;
+  height:100%;
+  // background-color: rgba(0,0,0,0.2);
+  background: $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  overflow-y:scroll;
+  transition: .15s ease-in-out;
+  }
+
+  .modalContent {
+    position: relative;
+    padding: 32px ;
+    width: 85%;
+    background-color: $color-primary;
+    z-index: 999999;
+    margin-top: 2%;
+  }
+
+  @media screen and (max-width: $breakpoint-tab) {
+    .modal {
+      background-color: $color-primary;
+      align-items: unset;
+    }
+    .modalContent {
+      margin-top: 0;
+      padding: 12px;
+    }
+  }
+ 
+  .close {
+    position: absolute;
+    color: #fff;
+    float: right;
+    margin-left: 154px;
+    font-size: 22px;
+  }
+  .back {
+    color: #fff;
+  }
+  .steps {
+    color: #fff;
+  }
+  .close:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  .hideForm {
+    display: none;
+  }
+
+  .gfieldError {
+    background-color: rgba(255,223,224,.05);
+    margin-bottom: 6px!important;
+    border-top: 1px solid #c89797;
+    border-bottom: 1px solid #c89797;
+    padding-bottom: 6px;
+    padding-top: 8px;
+  }
+  .transparent {
+    background-color: transparent;
+  }
+
+  .showForm {
+    display: block;
+  }
+
+  .styleError {
+    color: $color-red;
+    border:1px solid $color-red
+  }
+
+  .styleColor {
+    color: $color-red;
+  }
+  .formText {
+    width: 100%;
+    background-color: $color-primary;
+    color: #fff;
+  }
+
+
+  .accordion__section {
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion {
+    background-color: rgb(239, 239, 239);
+    color: #f4c4;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    transition: background-color 0.6s ease;
+  }
+  
+  .accordion:hover,
+  .active1 {
+    background-color: rgb(239, 239, 239);
+  }
+  .accordion__title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 25px;
+    width: 100%;
+    font-size: 15px;
+    color: #003a5d;
+    margin-top: auto;
+  }
+  .accordion__icon {
+    margin-left: auto;
+    transition: transform 0.6s ease;
+  }
+  .rotate {
+    transform: rotate(90deg);
+  }
+  .accordion__content {
+    color: #66899e;
+    flex: 1 1 auto;
+    background-color: white;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    font-size: 1rem;
+    font-weight: 400;
+    max-height: 0;
+  }
+  .accordion__text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px;
+  }
+  .accordion__text div {
+    font-size: 1rem;
+    color: #66899e;
+  }
+
+
+  .modal1 {
+    background-color: $color-primary;
+    width: 1100px;
+    height: 600px;
+    padding: 20px;
+    z-index: 100;
+    position: fixed;
+    z-index: 50;
+}
+
+.header1 {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+}
+
+.overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: center;
+    background-color: rgba(0,0,0, 0.82);
+}
