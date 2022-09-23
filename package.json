@@ -25,8 +25,13 @@
     "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.4.4",
+    "axios": "^0.27.2",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
-    "framer-motion": "^7.3.6"
+    "framer-motion": "^7.3.6",
+    "ip": "^1.1.8",
+    "js-base64": "^3.7.2",
+    "react-hook-form": "^7.36.0"
   }
 }

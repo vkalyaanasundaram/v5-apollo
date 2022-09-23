@@ -9,9 +9,8 @@ import Heading, { HeadingProps } from "./Heading";
 export default function Blog({ heading,
     posts,
     id,
-    headingLevel = "h1",
-    postTitleLevel = 'h2',
-    postMainTitleLevel = "h1",
+    postTitleLevel,
+    postMainTitleLevel,
     readMoreText = "Read more",
     intro
 }) {
@@ -35,16 +34,17 @@ export default function Blog({ heading,
                                             imageSrcUrl={post?.featuredImage?.node?.sourceUrl}
                                         />
                                         <Heading
-                                            level={postTitleLevel}
+                                            level={postMainTitleLevel}
                                             className={styles.title}
                                         >
                                             <Link href={`/blog/${post.slug}`}>
                                                 <a>{post.title}</a>
                                             </Link>
                                         </Heading>
-                                        <div
-                                            dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
-                                        />
+                                        {/* <div
+    
+                          dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
+                        /> */}
                                         <Link href={`/blog/${post.slug}`}>
                                             <a
                                                 aria-label={`Read more about ${post.title || "the post"

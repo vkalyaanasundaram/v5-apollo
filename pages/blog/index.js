@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+// import styles from '../../styles/Home.module.css'
 import { client } from '../../lib/apollo';
 import { gql } from "@apollo/client";
 import Blog from "../../components/Blog"
@@ -7,10 +8,10 @@ import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import Category from "../../components/Category"
 import styles from '../../styles/pages/posts.module.scss';
-import BLOG_QRY from "../../lib/BlogsQry";
 
 
 export default function Home({ posts,categories }) {
+    console.log(categories);
     return (
         <>
             <Header />
@@ -39,8 +40,20 @@ export default function Home({ posts,categories }) {
                             <Category categories={categories?.nodes} />
                         </div>
                     </div>
+
                 </main>
                 <Footer />
+
+                {/* <main className={styles.main}>
+                {posts.map((value, key) => (
+                    <div key={key}>
+                        <div>{value?.title}</div>
+                        <div>{value?.content}</div>
+                    </div>
+                ))}
+            </main> */}
+
+
             </div>
         </>
     )
@@ -48,10 +61,41 @@ export default function Home({ posts,categories }) {
 
 export async function getStaticProps() {
 
+    // Paste your GraphQL query inside of a gql tagged template literal
+    const GET_POSTS = gql`
+    query AllPostsQuery {
+        categories(first: 99) {
+            nodes {
+              uri
+              name
+              slug
+            }
+        }
+        posts {
+            nodes {
+            title
+            content
+            uri
+            slug
+            excerpt
+            featuredImage {
+                node {
+                altText
+                sourceUrl
+                }
+            }
+        }
+      }
+      
+    }
+  `;
+    // Here we make a call with the client and pass in our query string to the 
+    // configuration objects 'query' property
     const response = await client.query({
-        query: BLOG_QRY
+        query: GET_POSTS
     });
-
+    // Once we get the response back, we need to traverse it to pull out the 
+    // data we want to pass into the HomePage
     const posts = response?.data?.posts?.nodes;
     const categories = response.data?.categories
 

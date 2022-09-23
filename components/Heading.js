@@ -4,6 +4,6 @@ export default function Heading({level = 'h1',
 children,
 className,}) {
     return (
-        <h3 className={className}>{children}</h3>
+        <div className={className}>{children}</div>
     )
 }
