@@ -10,8 +10,7 @@ import Category from "../../components/Category"
 import styles from '../../styles/pages/posts.module.scss';
 
 
-export default function Home({ posts,categories }) {
-    console.log(categories);
+export default function Home({ posts, categories }) {
     return (
         <>
             <Header />

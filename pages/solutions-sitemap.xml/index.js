@@ -3,7 +3,6 @@ import Footer from "../../components/Footer";
 import styles from '../../styles/pages/posts.module.scss';
 
 export default function SolutionSitemap({ data }) {
-    console.log(data?.data?.status);
     return (
         <>
             <Header />
