@@ -1,6 +1,7 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useState } from "react";
 import Hero from "../components/Hero";
 import AdvancedHero from "../components/AdvancedHero";
 import Head from 'next/head';
@@ -8,19 +9,18 @@ import Image from 'next/image';
 import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
 
+import PopUpGetStarted from "../components/PopUpGetStarted";
+import PopUpPartner from "../components/PopUpPartner";
+import ContactForm from "../components/Forms/ContactForm";
+
 export default function Page({ data, modelTest }) {
+    const [popuppartner, setPopUpPartner] = useState(false)
+    const [popupgetstarted, setPopUpGetStarted] = useState(false)
+    const [mediacenter, setMediaCenter] = useState(false)
+
     return (
         <>
             <Header />
-            {/* {modelTest?.mainTitle ? (
-                <Hero
-                    title={modelTest?.mainTitle}
-                    bgImage={data?.featuredImage?.node.sourceUrl} />
-            ) : (
-                <Hero
-                    title={data?.title}
-                    bgImage={data?.featuredImage?.node.sourceUrl} />
-            )} */}
             <AdvancedHero
                 title={modelTest?.mainTitle}
                 indexTitle=''
@@ -29,7 +29,7 @@ export default function Page({ data, modelTest }) {
                 column='two'
                 slug={data?.slug}
             />
-            <h1>{data?.title}</h1>
+            {/* <h1>{data?.title}</h1> */}
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
             <Footer />
         </>

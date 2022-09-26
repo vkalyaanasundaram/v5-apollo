@@ -4,6 +4,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import AdvancedHero from "../components/AdvancedHero";
 import Footer from "../components/Footer";
 import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
@@ -35,6 +36,13 @@ export default function Home({ page }) {
             slug="home"
           >
           </Hero>
+          {/* <AdvancedHero
+                title="Get Started Some Loans"
+                indexTitle=''
+                bgImage="https://res.cloudinary.com/dsfu88hae/image/upload/v1647389853/NewMedia/linkedin-sales-solutions-VtKoSy_XzNU-unsplash_vrlzaa.webp"
+                column='two'
+                buttonText="GET STARTED"
+            /> */}
           <div dangerouslySetInnerHTML={{ __html: page.content ?? "" }} />
         </>
       </main>

@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import styles from 'scss/components/PopUpGetStarted.module.scss';
+import styles from '../../../styles/components/PopUpGetStarted.module.scss';
 import { useForm } from "react-hook-form";
 import Accordion from './FormAccordion'
 import { creditscore } from "../FormElements/Variables"

@@ -53,7 +53,8 @@ export default function Hero({ bgImage,
         <>
             <section
                 {...(id && { id })}
-                className={`${styles.bgImage} ${type == "cobrand" ? styles.cobrandhero : styles.hero}`}>
+                className={`${styles.bgImage} ${type == "cobrand" ? styles.cobrandhero : styles.hero}`}
+                >
                 {bgImage && <Images src={bgImage} layout="fill" objectFit="cover" alt={alt} priority blurDataURL={bgImage} placeholder="blur" />}
                 <div className={styles.wrap}>
                     <div className={type == "cobrand" ? styles.htag : ``}

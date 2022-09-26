@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import styles from 'scss/components/PopUpGetStarted.module.scss';
+import styles from '../../../styles/components/PopUpGetStarted.module.scss';
 import Accordion from './FormAccordion'
 import { industry } from "../FormElements/Variables"
 import { useForm } from "react-hook-form";
