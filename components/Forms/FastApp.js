@@ -65,7 +65,7 @@ export default function Applynow({
   const key = useRef()
   const [random, setRandom] = useState(Math.random().toString(36).substr(2, 6)) 
   
-  const { register, handleSubmit, trigger, formState: { errors } } = useForm<Inputs>({
+  const { register, handleSubmit, trigger, formState: { errors } } = useForm({
     defaultValues: fieldData
   });
   let requestForm = {}
