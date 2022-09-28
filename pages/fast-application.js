@@ -22,7 +22,6 @@ export default function FastApplication() {
                         id=""
                         slug="Fast Application"
                     /> */}
-                    <p><script defer="" src="https://cdn.trustindex.io/loader.js?09a5ee4135268498715860a5eb"></script></p>
                     <FastApp />
                 </main>
             </div>
