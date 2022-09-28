@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/components/Hero.module.scss';
 import Images from "next/image";
+import Link from "next/link";
 import PopUpGetStarted from "./PopUpGetStarted";
 import PopUpPartner from "./PopUpPartner";
 import ContactForm from "./Forms/ContactForm";
 
-export default function Hero({ bgImage, 
-    title, 
-    type, 
-    children, 
-    buttonText, 
+export default function Hero({ bgImage,
+    title,
+    type,
+    children,
+    buttonText,
     buttonURL,
     button2Text,
     button2URL,
@@ -53,8 +54,8 @@ export default function Hero({ bgImage,
         <>
             <section
                 {...(id && { id })}
-                className={`${styles.bgImage} ${type == "cobrand" ? styles.cobrandhero : styles.hero}`} 
-                >
+                className={`${styles.bgImage} ${type == "cobrand" ? styles.cobrandhero : styles.hero}`}
+            >
                 {bgImage && <Images src={bgImage} layout="fill" objectFit="cover" alt={alt} priority blurDataURL={bgImage} placeholder="blur" />}
                 <div className={styles.wrap}>
                     <div className={type == "cobrand" ? styles.htag : ``}
@@ -64,11 +65,18 @@ export default function Hero({ bgImage,
                     {/* <h1>{indexTitle}</h1> */}
                     <div className={styles.intro}>
                         <div className={styles.children}>{children}</div>
-                        {buttonText && slug!="products-we-offer" && (
+                        {buttonText && slug != "products-we-offer" && slug != "about-us" && slug != "success-stories" && slug != "the-kapitus-difference" && (
                             <p>
                                 <a href={buttonURL} onClick={togglePop} className="button">
                                     {buttonText}
                                 </a>
+                            </p>
+                        )}
+                        {buttonText && slug == "the-kapitus-difference" && (
+                            <p>
+                                <Link href="/about-us" className="button">
+                                    LEARN MORE
+                                </Link>
                             </p>
                         )}
                         {button2Text && button2URL && (

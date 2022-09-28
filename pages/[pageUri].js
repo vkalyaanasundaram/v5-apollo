@@ -14,18 +14,19 @@ export default function Page({ data, modelTest }) {
     return (
         <>
             <Header />
+            {data?.slug != "developer-documentation" && (
+                <Hero
+                    title=""
+                    buttonText="GET IN TOUCH"
+                    buttonURL=""
+                    button2Text={null}
+                    button2URL=""
+                    bgImage={data?.featuredImage?.node?.sourceUrl}
+                    // id={styles.home_hero}
 
-            <Hero
-                title=""
-                buttonText="GET IN TOUCH"
-                buttonURL=""
-                button2Text={null}
-                button2URL=""
-                bgImage={data?.featuredImage?.node?.sourceUrl}
-                // id={styles.home_hero}
-
-                slug={data?.slug}
-            />
+                    slug={data?.slug}
+                />
+            )}
 
             {/* <h1>{data?.title}</h1> */}
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
