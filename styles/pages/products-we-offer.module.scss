@@ -1,0 +1,140 @@
+// CSS for the index.tsx template.
+
+@import "../variables";
+
+.carousel .control-prev.control-arrow:before {
+    border-right: 20px solid #73b564;
+}
+
+.carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {
+    margin: 0 5px;
+    display: inline-block;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    content: '';
+}
+.explore {
+	margin: 5em 0 5em;
+}
+
+#post_list {
+	padding: 5em 0 6em;
+	background-color: $color-light-gray;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	#home_hero h1 {
+		max-width: 40%; // Reduced from 80% on the front-page only to wrap the headline.
+	}
+
+	.features {
+		column-gap: 20px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		strong {
+			font-weight: bold;
+		}
+	}
+
+	#post_list :global(.posts) {
+		display: grid;
+		column-gap: 10px;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+
+
+
+#home_hero::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: transparent;
+	opacity: 0;
+	z-index: 1;	
+}
+
+
+
+// .special:before {
+// 	content: '';
+// 		background: red;
+// 	  }
+
+.entry {
+	margin-bottom: 2rem;
+	color: $color-primary;
+	background-color: $color-primary;
+	h1 {
+	  color: $color-primary;
+	}
+	@media (min-width: $breakpoint-small) {
+	  margin-bottom: 0rem;
+	}
+	.hero {
+		background-color: rgba(255, 255, 255, 0.7294117647);
+		background-position: 48% 72%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: #fff;
+		padding: 13em 0 9em;
+		position: relative;
+		height: 60vh;
+		max-width: 1800px;
+		flex: auto;
+		margin: 0 auto;
+		display: block;
+		position: relative;
+		// margin-top: 7rem;
+		margin-top:   0rem;
+		border: 2rem solid white;
+
+	}
+  }
+
+.special {
+	display: block;
+	position: relative;
+  
+	&:before {
+	  content: ' ';
+	  position: absolute;
+	  height: 50%;
+	  width: 100%;
+	  background-color: $color-white;
+	  bottom: 0;
+	  left: 0;
+	  z-index: 0;
+	}
+  }
+
+
+  .special {
+	margin-bottom: 2rem;
+	margin-top: 5rem;
+	color: $color-primary;
+	background-color: $color-primary;
+	h1 {
+	  color:$color-primary;
+	}
+	@media (min-width: $breakpoint-small) {
+	  margin-bottom: 0rem;
+	}
+  }
+
+  #home_hero::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: transparent;
+	opacity: 0.8;
+	z-index: 1;
+}

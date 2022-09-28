@@ -64,7 +64,7 @@ export default function Hero({ bgImage,
                     {/* <h1>{indexTitle}</h1> */}
                     <div className={styles.intro}>
                         <div className={styles.children}>{children}</div>
-                        {buttonText &&  (
+                        {buttonText && slug!="products-we-offer" && (
                             <p>
                                 <a href={buttonURL} onClick={togglePop} className="button">
                                     {buttonText}

@@ -1,0 +1,96 @@
+@import "../variables";
+
+.submenuContainer {
+    min-height: 52px;
+    position: relative;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: 13px;
+    line-height: 1.65em;
+    background-color: #00395d;
+    color: #fff;
+    clear: both;
+    z-index: 301;
+    top: 3.5rem;
+}
+
+.subContainer {
+    max-width: 100%;
+    border-color: $color-bright-grey;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    clear: both;
+}
+
+.subNavMenu {
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    border-color: $color-bright-grey;
+    overflow-wrap: break-word;
+    list-style: none outside;
+}
+
+.menuItem {
+  padding: 15px 2px;
+  margin-top: 20px!important;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  border-top: 0!important;
+  border-color: $color-bright-grey;
+  vertical-align: baseline;
+}
+.anchor {
+  position: relative;
+  overflow: hidden;
+  // width: 63px;
+  width: 70px;
+  //padding: 0 10px 0 12px;
+  display: block;
+  color: #fff;
+  border-color: $color-bright-grey;
+}
+
+.title {
+  text-align: center;
+  margin-left: 0;
+/*   width: 80px;
+  padding-left: 17px; */
+}
+
+.imageBackground {
+  background-color: #a94068;
+  border-radius: 50px;
+}
+
+@media screen and (min-width: $breakpoint-hsmall) {
+	.SecondaryMobileMenu {
+	  display: none;
+	}
+  .submenuContainer {
+	  display: block;
+	}
+  }
+
+@media screen and (max-width: $breakpoint-hsmall) {
+	.submenuContainer {
+	  display: none;
+	}
+  .SecondaryMobileMenu {
+	  display: block;
+    background-color: $color-primary;
+    margin-top: 5rem;
+	}
+  .slideContent {
+    text-align: center;
+    padding-top: 3%;
+  }
+  .textContent {
+    color: #fff;
+  }
+}
