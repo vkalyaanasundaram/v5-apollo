@@ -9,26 +9,24 @@ import Image from 'next/image';
 import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
 
-import PopUpGetStarted from "../components/PopUpGetStarted";
-import PopUpPartner from "../components/PopUpPartner";
-import ContactForm from "../components/Forms/ContactForm";
 
 export default function Page({ data, modelTest }) {
-    const [popuppartner, setPopUpPartner] = useState(false)
-    const [popupgetstarted, setPopUpGetStarted] = useState(false)
-    const [mediacenter, setMediaCenter] = useState(false)
-
     return (
         <>
             <Header />
-            <AdvancedHero
-                title={modelTest?.mainTitle}
-                indexTitle=''
-                // bgImage={productsService?.heroAdvanced?.desktopBanner?.sourceUrl()}
+
+            <Hero
+                title=""
+                buttonText="GET IN TOUCH"
+                buttonURL=""
+                button2Text={null}
+                button2URL=""
                 bgImage={data?.featuredImage?.node?.sourceUrl}
-                column='two'
+                // id={styles.home_hero}
+
                 slug={data?.slug}
             />
+
             {/* <h1>{data?.title}</h1> */}
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
             <Footer />

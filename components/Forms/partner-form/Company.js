@@ -1,5 +1,5 @@
 import React, { useState, useEffect, SetStateAction, Dispatch } from "react";
-import styles from '../../../components/PopUpGetStarted.module.scss';
+import styles from '../../../styles/components/PopUpGetStarted.module.scss';
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { states } from '../FormElements/Variables'

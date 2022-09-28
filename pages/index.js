@@ -25,7 +25,7 @@ export default function Home({ page }) {
       <main className="mx-5 my-10">
         <>
           <Hero
-            title="Get Started Some Loans"
+            title=""
             buttonText="GET STARTED"
             buttonURL="https://faustjs.org"
             button2Text={null}
