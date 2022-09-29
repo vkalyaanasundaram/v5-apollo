@@ -22,13 +22,10 @@ export default function Page({ data, modelTest }) {
                     button2Text={null}
                     button2URL=""
                     bgImage={data?.featuredImage?.node?.sourceUrl}
-                    // id={styles.home_hero}
-
                     slug={data?.slug}
                 />
             )}
 
-            {/* <h1>{data?.title}</h1> */}
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
             <Footer />
         </>
