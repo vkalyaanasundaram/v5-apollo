@@ -1,6 +1,7 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import MediaCenter from "../components/MediaCenter";
 import { useState } from "react";
 import Hero from "../components/Hero";
 import AdvancedHero from "../components/AdvancedHero";
@@ -10,7 +11,7 @@ import { client } from '../lib/apollo';
 import { gql } from "@apollo/client";
 
 
-export default function Page({ data, modelTest }) {
+export default function Page({ data, modelTest, pressReleases, pressCoverages }) {
     return (
         <>
             <Header />
@@ -27,6 +28,7 @@ export default function Page({ data, modelTest }) {
             )}
 
             <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+            {data?.slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
             <Footer />
         </>
     )
@@ -54,6 +56,32 @@ export async function getStaticProps(context) {
         modelTest(id: "${pageURI}", idType: URI) {
            mainTitle
         }
+        pressCoverages(first: 99) {
+            nodes {
+              content
+              title
+              link
+              uri
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+        }
+        pressReleases(first: 99) {
+            nodes {
+              content
+              title
+              link
+              uri
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+            }
+        }
       }
   `;
     const response = await client.query({
@@ -62,7 +90,9 @@ export async function getStaticProps(context) {
     return {
         props: {
             data: response?.data?.page,
-            modelTest: response?.data?.modelTest
+            modelTest: response?.data?.modelTest,
+            pressReleases: response?.data?.pressReleases.nodes,
+            pressCoverages: response?.data?.pressCoverages.nodes
         }
     }
 }
