@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { client } from '../../lib/apollo';
 import { gql } from "@apollo/client";
 import Blog from "../../components/Blog"
+import RecentPost from "../../components/RecentPost"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import Category from "../../components/Category"
@@ -11,6 +12,7 @@ import styles from '../../styles/pages/posts.module.scss';
 
 
 export default function Home({ posts, categories }) {
+
     return (
         <>
             <Header />
@@ -24,6 +26,7 @@ export default function Home({ posts, categories }) {
                 <main className="content content-page">
                     <div className="blogWrap">
                         <div className="blogContainer">
+                            
                             <Blog
                                 posts={posts}
                                 headingLevel="h2"
@@ -35,7 +38,7 @@ export default function Home({ posts, categories }) {
                             {/* <Pagination pageInfo={posts.pageInfo} basePath="/blog" /> */}
                         </div>
                         <div className="blogNav">
-                            {/* <RecentPost /> */}
+                            <RecentPost posts={posts} />
                             <Category categories={categories?.nodes} />
                         </div>
                     </div>

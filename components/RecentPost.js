@@ -1,7 +1,10 @@
-export default function RecentPost() {
+export default function RecentPost({ posts }) {
+
+
     return (
         <>
-            <div>Recent Posts</div>
+            Recent Post
+            
         </>
     )
 }

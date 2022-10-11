@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/components/Posts.module.scss";
 import PostLargeImage from "./PostLargeImage";
 import PostImage from "./PostImage";
 import Heading, { HeadingProps } from "./Heading";
-
+import { useRouter } from 'next/router'
 
 export default function Blog({ heading,
     posts,
@@ -14,6 +15,11 @@ export default function Blog({ heading,
     readMoreText = "Read more",
     intro
 }) {
+    const router = useRouter()
+    const searchPost = (event) => {
+        router.push(`/blog/SearchResult?keyword=${event}`)
+    }
+
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <section className={styles["posts-block"]} {...(id && { id })}>
@@ -24,7 +30,7 @@ export default function Blog({ heading,
                     </Heading>
                 )}
                 {intro && <p className={styles.intro}>{intro}</p>}
-                <div>
+                <>
                     {posts.map((post, key) => (
                         <div className="grid grid-cols-1 gap-4" key={key}>
                             {key === 0 ? (
@@ -60,12 +66,25 @@ export default function Blog({ heading,
                             )}
                         </div>
                     ))}
+                </>
+                <div className="grid grid-cols-1 gap-4 my-10 mx-2" >
+                    <input
+                        type="text"
+                        name="searchIco"
+                        id="searchIco"
+                        placeholder="Search"
+                        className="border-2 border-gray-300 p-2 w-full"
+                        onBlur={(e) => searchPost(e.target.value)}
+                    />
+                    {/* <input type="text" name="SearchBlog" className="p-2" placeholder="Search Blogs" /> */}
                 </div>
+
                 <div className="grid grid-cols-3 gap-4">
+
                     {
-                        posts?.map((post) => (
-                            <div key={post.id ?? ""} id={`post-${post.id}`}>
-                                <div>
+                        posts?.map((post, key) => (
+                            <div key={key ?? ""} id={`post-${post.id}`}>
+                                <>
                                     <PostImage imageSrcUrl={post?.featuredImage?.node?.sourceUrl} />
                                     <Heading level={postTitleLevel} className={styles.title}>
                                         <Link href={`/blog/${post.slug}`}>
@@ -81,12 +100,12 @@ export default function Blog({ heading,
                                             {readMoreText}
                                         </a>
                                     </Link>
-                                </div>
+                                </>
                             </div>
                         )
                             // )
                         )}
-                    {posts && posts?.length < 1 && <p>No posts found.</p>}
+                    {/* {posts && posts?.length < 1 && <p>No posts found.</p>} */}
                 </div>
             </>
         </section>
