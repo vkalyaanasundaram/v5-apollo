@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from '../styles/components/Footer.module.scss';
+import styles from '../styles/components/Header.module.scss';
 
 export default function Footer() {
 
@@ -14,7 +14,7 @@ export default function Footer() {
 
     return (
         <footer className={styles.footer}>
-            <div className="   mx-auto">
+            <div className="mx-auto">
                 <div className="grid md:grid-cols-4 gap-20">
                     <div className="flex justify-center p-6 text-1xl">
                         <ul>
@@ -60,7 +60,7 @@ export default function Footer() {
 
             <div className={`${styles.topHeader}  `}>
                 <div className={`${styles.content} `}>
-                    <div className={`${styles.copyright} text-xs text-white`}>
+                    <div className={`${styles.copyright} text-xs text-white mt-5`}>
                         Kapitus, LLC or its affiliates. All rights reserved. Kapitus, LLC, Kapitus.com, and the Kapitus logo are registered trademarks of Kapitus, Inc. or its affiliates. | Loans made in California are issued by Strategic Funding Source, Inc. dba Kapitus, pursuant to California Finance Lenders License No. 603-G807.
                     </div>
                     <ul className={`${styles.topList}`}>

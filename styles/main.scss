@@ -11,6 +11,7 @@ body {
 	color: $color-black;
 	font-size: 18px;
 	line-height: 1.6;
+	background: #fff;
 }
 
 .wrap {
@@ -538,3 +539,6 @@ vertical-align: middle;
 	  display: none;
 	}
   }
+footer {
+	background-color: #e6ebef;
+}
