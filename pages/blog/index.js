@@ -34,7 +34,7 @@ const AllLinksQuery = gql`query UPDATE_QRY($first: Int, $after: String) {
 
 
 function Home({categories}) {
-    console.log(categories);
+
     const { data, loading, error, fetchMore } = useQuery(AllLinksQuery, {
         variables: { first: 9 },
     });
