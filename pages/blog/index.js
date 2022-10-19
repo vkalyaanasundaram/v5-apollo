@@ -8,6 +8,7 @@ import Footer from "../../components/Footer"
 import RecentPost from "../../components/RecentPost"
 import Category from "../../components/Category"
 
+import { client } from '../../lib/apollo';
 
 
 const AllLinksQuery = gql`query UPDATE_QRY($first: Int, $after: String) {
@@ -32,7 +33,8 @@ const AllLinksQuery = gql`query UPDATE_QRY($first: Int, $after: String) {
 }`;
 
 
-function Home() {
+function Home({categories}) {
+    console.log(categories);
     const { data, loading, error, fetchMore } = useQuery(AllLinksQuery, {
         variables: { first: 9 },
     });
@@ -91,7 +93,7 @@ function Home() {
                         </div>
                         <div className="blogNav">
                             <RecentPost posts={data?.posts?.nodes} />
-                            {/* <Category categories={categories?.nodes} /> */}
+                            <Category categories={categories} />
                         </div>
                     </div>
 
@@ -114,3 +116,25 @@ function Home() {
 }
 
 export default Home;
+
+export async function getStaticProps() {
+
+    const GET_PAGE = gql`{
+        categories(first: 99) {
+          nodes {
+            name
+            slug
+            uri
+          }
+        }
+      }`;
+    const response = await client.query({
+        query: GET_PAGE
+    });
+    return {
+        props: {
+            categories: response?.data?.categories.nodes,
+
+        }
+    }
+}
