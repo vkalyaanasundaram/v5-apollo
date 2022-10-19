@@ -12,6 +12,7 @@ import Heading from "../../components/Heading"
 import Category from "../../components/Category"
 import styles from '../../styles/pages/posts.module.scss';
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 // const LAUNCH_QUERY = gql`
 //   query PostQry($first: Int, $query: String) {
@@ -75,6 +76,12 @@ export default function SearchResult(
     const data = useQuery(LAUNCH_QUERY)
     const posts = data?.data?.posts?.nodes;
     const categories = data?.data?.categories;
+    const [loading, setLoading] = useState(false);
+
+    const searchPost = (event) => {
+        router.push(`./SearchResult?keyword=${event}`)
+    }
+
     return (
         <>
             <Header />
@@ -98,31 +105,28 @@ export default function SearchResult(
                                     value={router?.query?.keyword}
                                     onChange={(e) => searchPost(e.target.value)}
                                 />
-                                {
-                                    posts?.map((post, key) => (
-                                        <div key={key ?? ""} id={`post-${post.id}`}>
-                                            <div>
-                                                <PostImage imageSrcUrl={post?.featuredImage?.node?.sourceUrl} />
-                                                <Heading level={postTitleLevel} className={styles.title}>
-                                                    <Link href={`/blog/${post.slug}`}>
-                                                        <a>{post.title}</a>
-                                                    </Link>
-                                                </Heading>
-                                                <div
-                                                    className={styles.excerpt}
-                                                    dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
-                                                />
+                                {posts?.map((post, key) => (
+                                    <div key={key ?? ""} id={`post-${post.id}`}>
+                                        <div>
+                                            <PostImage imageSrcUrl={post?.featuredImage?.node?.sourceUrl} />
+                                            <Heading level={postTitleLevel} className={styles.title}>
                                                 <Link href={`/blog/${post.slug}`}>
-                                                    <a aria-label={`Read more about ${post.title || "the post"}`}>
-                                                        {readMoreText}
-                                                    </a>
+                                                    <a>{post.title}</a>
                                                 </Link>
-                                            </div>
+                                            </Heading>
+                                            <div
+                                                className={styles.excerpt}
+                                                dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
+                                            />
+                                            <Link href={`/blog/${post.slug}`}>
+                                                <a aria-label={`Read more about ${post.title || "the post"}`}>
+                                                    {readMoreText}
+                                                </a>
+                                            </Link>
                                         </div>
-                                    )
-                                        // )
-                                    )}
-                                {/* <input type="text" name="SearchBlog" className="p-2" placeholder="Search Blogs" /> */}
+                                    </div>
+                                )
+                                )}
                             </div>
                         </div>
                         <div className="blogNav">

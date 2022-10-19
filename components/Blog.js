@@ -13,9 +13,9 @@ export default function Blog({ heading,
     postTitleLevel,
     postMainTitleLevel,
     readMoreText = "Read more",
-    intro
+    intro,
 }) {
-    const router = useRouter()
+    const router = useRouter();
     const searchPost = (event) => {
         router.push(`/blog/SearchResult?keyword=${event}`)
     }
@@ -31,26 +31,23 @@ export default function Blog({ heading,
                 )}
                 {intro && <p className={styles.intro}>{intro}</p>}
                 <>
-                    {posts.map((post, key) => (
-                        <div className="grid grid-cols-1 gap-4" key={key}>
+                    {posts?.map((post, key) => (
+                        <div className=" grid grid-cols-1 gap-4 p-5" key={key}>
                             {key === 0 ? (
                                 <div id={`post-${post.id}`}>
                                     <div className={styles.prime}>
                                         <PostLargeImage
                                             imageSrcUrl={post?.featuredImage?.node?.sourceUrl}
                                         />
-                                        <Heading
-                                            level={postMainTitleLevel}
-                                            className={styles.title}
-                                        >
+                                        <Heading level={postMainTitleLevel} className={styles.title}>
                                             <Link href={`/blog/${post.slug}`}>
                                                 <a>{post.title}</a>
                                             </Link>
                                         </Heading>
-                                        {/* <div
-    
-                          dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
-                        /> */}
+                                        <div
+
+                                            dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
+                                        />
                                         <Link href={`/blog/${post.slug}`}>
                                             <a
                                                 aria-label={`Read more about ${post.title || "the post"
@@ -79,7 +76,7 @@ export default function Blog({ heading,
                     {/* <input type="text" name="SearchBlog" className="p-2" placeholder="Search Blogs" /> */}
                 </div>
 
-                <div className="grid grid-cols-3 gap-4">
+                <div className="p-5 md:grid grid-cols-3 gap-4 xs:grid grid-cols-1 gap-4">
 
                     {
                         posts?.map((post, key) => (
@@ -100,13 +97,12 @@ export default function Blog({ heading,
                                             {readMoreText}
                                         </a>
                                     </Link>
+
                                 </>
                             </div>
-                        )
-                            // )
-                        )}
-                    {/* {posts && posts?.length < 1 && <p>No posts found.</p>} */}
+                        ))}
                 </div>
+
             </>
         </section>
     );

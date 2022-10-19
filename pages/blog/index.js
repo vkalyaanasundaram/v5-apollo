@@ -1,17 +1,46 @@
-import Head from 'next/head'
-import Image from 'next/image'
-// import styles from '../../styles/Home.module.css'
-import { client } from '../../lib/apollo';
-import { gql } from "@apollo/client";
-import Blog from "../../components/Blog"
-import RecentPost from "../../components/RecentPost"
+import Head from "next/head";
+import { gql, useQuery, useMutation } from "@apollo/client";
+import Link from "next/link";
+import Blog from "../../components/Blog";
 import Header from "../../components/Header"
-import Footer from "../../components/Footer"
-import Category from "../../components/Category"
 import styles from '../../styles/pages/posts.module.scss';
+import Footer from "../../components/Footer"
+import RecentPost from "../../components/RecentPost"
+import Category from "../../components/Category"
 
 
-export default function Home({ posts, categories }) {
+
+const AllLinksQuery = gql`query UPDATE_QRY($first: Int, $after: String) {
+    posts(first: $first, after: $after) {
+        pageInfo {
+            hasPreviousPage
+            hasNextPage
+            endCursor
+            startCursor
+        }
+        nodes {
+            title
+            excerpt
+            slug
+            featuredImage {
+                node {
+                    sourceUrl
+                }
+            }
+        }
+    }
+}`;
+
+
+function Home() {
+    const { data, loading, error, fetchMore } = useQuery(AllLinksQuery, {
+        variables: { first: 9 },
+    });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Oh no... {error.message}</p>;
+
+    const { endCursor, hasNextPage } = data.posts.pageInfo;
 
     return (
         <>
@@ -26,20 +55,43 @@ export default function Home({ posts, categories }) {
                 <main className="content content-page">
                     <div className="blogWrap">
                         <div className="blogContainer">
-                            
+
                             <Blog
-                                posts={posts}
+                                posts={data?.posts?.nodes}
                                 headingLevel="h2"
                                 postMainTitleLevel="h1"
                                 postTitleLevel="h4"
                                 id={styles.post_list}
                             />
-
-                            {/* <Pagination pageInfo={posts.pageInfo} basePath="/blog" /> */}
+                            <div className="text-center">
+                                {hasNextPage ? (
+                                    <button
+                                        className="px-4 py-2 bg-blue-500 text-white rounded my-10"
+                                        onClick={() => {
+                                            fetchMore({
+                                                variables: { after: endCursor },
+                                                updateQuery: (prevResult, { fetchMoreResult }) => {
+                                                    fetchMoreResult.posts.nodes = [
+                                                        ...prevResult.posts.nodes,
+                                                        ...fetchMoreResult.posts.nodes,
+                                                    ];
+                                                    return fetchMoreResult;
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Load More
+                                    </button>
+                                ) : (
+                                    <p className="my-10 text-center font-medium">
+                                        You've reached the end!{" "}
+                                    </p>
+                                )}
+                            </div>
                         </div>
                         <div className="blogNav">
-                            <RecentPost posts={posts} />
-                            <Category categories={categories?.nodes} />
+                            <RecentPost posts={data?.posts?.nodes} />
+                            {/* <Category categories={categories?.nodes} /> */}
                         </div>
                     </div>
 
@@ -47,64 +99,18 @@ export default function Home({ posts, categories }) {
                 <Footer />
 
                 {/* <main className={styles.main}>
-                {posts.map((value, key) => (
-                    <div key={key}>
-                        <div>{value?.title}</div>
-                        <div>{value?.content}</div>
-                    </div>
-                ))}
-            </main> */}
+            {posts.map((value, key) => (
+                <div key={key}>
+                    <div>{value?.title}</div>
+                    <div>{value?.content}</div>
+                </div>
+            ))}
+        </main> */}
 
 
             </div>
         </>
-    )
+    );
 }
 
-export async function getStaticProps() {
-
-    // Paste your GraphQL query inside of a gql tagged template literal
-    const GET_POSTS = gql`
-    query AllPostsQuery {
-        categories(first: 99) {
-            nodes {
-              uri
-              name
-              slug
-            }
-        }
-        posts {
-            nodes {
-            title
-            content
-            uri
-            slug
-            excerpt
-            featuredImage {
-                node {
-                altText
-                sourceUrl
-                }
-            }
-        }
-      }
-      
-    }
-  `;
-    // Here we make a call with the client and pass in our query string to the 
-    // configuration objects 'query' property
-    const response = await client.query({
-        query: GET_POSTS
-    });
-    // Once we get the response back, we need to traverse it to pull out the 
-    // data we want to pass into the HomePage
-    const posts = response?.data?.posts?.nodes;
-    const categories = response.data?.categories
-
-    return {
-        props: {
-            posts,
-            categories
-        }
-    }
-}
+export default Home;
