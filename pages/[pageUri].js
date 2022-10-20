@@ -46,7 +46,7 @@ export default function Page({ page, modelTest, pressReleases, pressCoverages })
 
       }
       {slug == 'media-center' && <MediaCenter presscoverage={pressCoverages} pressrelease={pressReleases} />}
-
+      {slug == 'developer-documentation' && <DeveloperDocument />}
       {/* {data?.slug != "developer-documentation" && (
         <Hero
           title=""
