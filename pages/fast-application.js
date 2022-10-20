@@ -61,9 +61,10 @@ export default function FastApplication() {
                     </div>
                     {value && <FastApp fieldData={data} />}
                 </div>
-                <div>
-                    <Footer />
-                </div>
+
+            </div>
+            <div>
+                <Footer />
             </div>
         </>
     )
