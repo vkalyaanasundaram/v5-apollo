@@ -14,8 +14,8 @@ import Faqs from "../../components/Faqs"
 import Relatedblogs from "../../components/Relatedblogs"
 
 export default function IndividualProducts({ productsService, modelTest }) {
+    
     const faqlists = { faq1: [productsService?.faqSection?.faqGroup1?.faqQuestion, productsService?.faqSection?.faqGroup1?.faqAnswer], faq2: [productsService?.faqSection?.faqGroup2?.faqQuestion, productsService?.faqSection?.faqGroup2?.faqAnswer], faq3: [productsService?.faqSection?.faqGroup3?.faqQuestion, productsService?.faqSection?.faqGroup3?.faqAnswer], faq4: [productsService?.faqSection?.faqGroup4?.faqQuestion, productsService?.faqSection?.faqGroup4?.faqAnswer], faq5: [productsService?.faqSection?.faqGroup5?.faqQuestion, productsService?.faqSection?.faqGroup5?.faqAnswer], faq6: [productsService?.faqSection?.faqGroup6?.faqQuestion, productsService?.faqSection?.faqGroup6?.faqAnswer], faq7: [productsService?.faqSection?.faqGroup7?.faqQuestion, productsService?.faqSection?.faqGroup7?.faqAnswer] }
-
     const cardGroup = [productsService?.CardRows?.cardGroup1, productsService?.CardRows?.cardGroup2, productsService?.CardRows?.cardGroup3]
     const cardGroup1 = [productsService?.CardRows?.cardGroup4, productsService?.CardRows?.cardGroup5, productsService?.CardRows?.cardGroup6]
     const cardGroup2 = [productsService?.CardRows?.cardGroup7, productsService?.CardRows?.cardGroup8, productsService?.CardRows?.cardGroup9]
@@ -28,7 +28,6 @@ export default function IndividualProducts({ productsService, modelTest }) {
             <AdvancedHero
                 title={productsService?.heroAdvanced?.advancedBannerEditor}
                 indexTitle=''
-                // bgImage={productsService?.heroAdvanced?.desktopBanner?.sourceUrl()}
                 bgImage={productsService?.heroAdvanced?.desktopBanner?.url}
                 column='two'
                 slug={productsService?.slug}
