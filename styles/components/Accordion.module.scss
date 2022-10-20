@@ -1,0 +1,72 @@
+// CSS for the Hero component in components/Hero.tsx.
+
+@import "../variables";
+
+
+.singleToggle {
+  padding: 30px 10px 25px 35px;
+  font-size: 17px;
+  top: 0;
+  border-top-width: 1px;
+  background-color: #fff;
+  color: $color-mid-gray;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  position: relative;
+  border-style: solid;
+  border-width: 1px;
+  line-height: 1.65em;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.button {
+  padding: 18px 0 18px 0;
+}
+
+.contentToggle{
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.toggleIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 40px;
+    left: auto;
+    right: 20px;
+    border-width: 2px;
+    opacity: .4;
+    transition: all .2s ease-in;
+    background-color: #7abd65;
+    border-color: #e7ebef;
+    position: absolute;
+    border-style: solid;
+}
+
+.icon {
+  border-width: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+}
+
+.vertIcon {
+  border-left-style: solid;
+  height: 11px;
+}
+
+.horIcon {
+  border-top-style: solid;
+  width: 11px;
+}
+.active {
+  background-color: #a94068;
+  opacity: 1;
+}
+
+.vactive {
+  border: none;
+}

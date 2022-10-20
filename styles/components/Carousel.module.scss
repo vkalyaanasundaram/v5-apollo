@@ -1,0 +1,93 @@
+// CSS for the Hero component in components/Hero.tsx.
+
+@import "../variables";
+
+
+/* TWO COLUMN FLEXBOX */
+.twoColumn {
+  display:flex;
+  flex-direction:row;
+  padding: 10px 0;
+}
+.col {
+  flex:1;
+  /*border:1px solid blue;*/
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+}
+.content {
+  background-color: rgb(93, 127, 173);;
+}
+
+.textContent {
+  padding: 0;
+  color: #fff;
+}
+
+@media only screen and (max-width: 800px) {
+  .twoColumn {
+    padding: 40px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .twoColumn {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .textContent {
+    padding: 126px 0px 153px;
+  }
+
+}
+
+.imageButton {
+  width:50%;
+  display: flex;
+  justify-content: space-between;
+
+  margin: auto;
+  text-align: center;
+}
+
+.column {
+	float: left;
+	width: 50%;
+  }
+
+  .content {
+    top: -1.05391px;
+    left: 697.686px;
+    background-size: contain;
+    background-position: 0% 50%;
+
+    background-color: rgb(93, 127, 173);
+    color: rgb(255, 255, 255);
+    font-size: 14.7547px;
+    line-height: 15.8086px;
+    margin: 0px;
+    z-index: auto;
+    padding: 0px;
+    border-width: 0px;
+    border-radius: 0px;
+    letter-spacing: 0px;
+    filter: none;
+  }
+
+  .imageIcon {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+
+    /* Responsive columns */
+@media screen and (max-width: 767px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }

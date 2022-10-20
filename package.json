@@ -36,6 +36,8 @@
     "framer-motion": "^7.3.6",
     "ip": "^1.1.8",
     "js-base64": "^3.7.2",
-    "react-hook-form": "^7.36.0"
+    "react-carousel-responsive": "^0.0.31",
+    "react-hook-form": "^7.36.0",
+    "typewriter-effect": "^2.19.0"
   }
 }

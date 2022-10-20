@@ -10,7 +10,15 @@ import InvoiceShortForm from './Forms/InvoiceShortForm'
 
 
 
-export default function AdvancedHero({ title, indexTitle, bgImage, column, slug }) {
+export default function AdvancedHero({ title,
+    indexTitle,
+    id,
+    bgImage,
+    column,
+    slug,
+    children,
+    buttonText,
+    buttonURL }) {
 
     const [popupgetstarted, setPopUpGetStarted] = useState(false)
     const [popuppartner, setPopUpPartner] = useState(false)
@@ -50,7 +58,7 @@ export default function AdvancedHero({ title, indexTitle, bgImage, column, slug 
                 />
                 <h2>{indexTitle}</h2>
                 <div className={styles.intro}>
-                    <div className={styles.children}>{children}</div>
+                    {/* <div className={styles.children}>{children}</div> */}
                     {buttonText && buttonURL && (
                         <p>
                             <a href={buttonURL} onClick={togglePop} className="button">

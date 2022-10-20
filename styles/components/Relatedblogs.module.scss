@@ -1,0 +1,105 @@
+// CSS for the FAQs component in components/Faqs.tsx.
+
+@import "../variables";
+
+
+.wrap {
+    flex-wrap: inherit;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1700px;
+	padding: 0 15px;
+    font-size: 16px;
+}
+.content {
+    width: 78.8%;
+}
+.title {
+    margin: 12px 0 12px 0; 
+}
+.ptag {
+    color: $color-mid-gray;
+}
+.readme {
+    color: #a94068;
+    padding: 5px 0 5px 0;
+}
+
+.floatLayout {
+
+    float: left;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+    justify-content: space-between
+  }
+  
+  .card {
+    color: $color-primary;
+    min-height: 100%; /*replace this it in width: 100%*/
+    width: 50%;
+    float: right;
+    padding-left: 50px;
+  }
+  
+  .cardDesc {
+    text-align: left;
+    color: $color-mid-gray;
+    padding: 12px 0 16px 0;
+  }
+  
+  /*add this it*/
+  .cardImage {
+    display: flex;
+  }
+  /*-------------*/
+  
+  .imageSrc {
+    width: 50%;
+    height: auto;
+    padding-right: 18px;
+  }
+  
+
+  .outerBorder {
+    margin-top:50px; 
+	margin-bottom:50px;
+	width: 78.8%;
+}
+.innerBorder {
+	display: inline-block;
+    position: relative;
+    vertical-align: middle;
+	width: 100%;
+    border-color: #7abd65;
+	height: 1px;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+.innerStyle {
+	border-color: #e7ebef;
+}
+
+  /* Phone Devices Query */
+  @media only screen and (max-width: 37.5em) {
+    .imageSrc {
+      width: 100%;
+      height: auto;
+      padding-right: 18px;
+    }
+    
+    /*add this it*/
+    .cardImage {
+       flex-direction: column;
+    }
+    /*----------------------*/
+    .card {
+      width: 100%;
+      margin-top: -4px;
+      padding-left: 0;
+    }
+}
