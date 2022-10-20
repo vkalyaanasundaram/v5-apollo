@@ -40,28 +40,31 @@ export default function FastApplication() {
             </div>
             <Footer /> */}
             <div className="bg-kapitus py-10 px-10 m-auto w-full">
-        <div className="col-span-2 mb-2 text-center text-kapitusblue text-xs font-bold">
-          <Images src="/images/kapitus_logo_white.jpg" alt="logo" priority layout="intrinsic" width={300} height={120} />
-        </div>
-        <div className={`max-w-4xl m-auto ${trigger ? `opacity-50` : ``}`}>
-          <div className="mt-10 px-8 py-20" style={{ background: "url(/fastAppBanner.jpeg) center center no-repeat" }}>
-            <section className="md:px-20">
-              <div>
-                <h1 className="text-left"><span className="text-white text-xl font-bold">BUSINESS LOANS GET APPROVED FAST</span></h1>
-                <h2 className="text-left"><span className="text-white text-xl font-bold">GET APPROVED FAST</span></h2>
-              </div>
-            </section>
-            <section>
-              <div className="md:pl-20 mt-4">
-                <div className="text-left"><span className="text-white">• 250K in Average Annual Revenue Required</span></div>
-                <div className="text-left"><span className="text-white">• 2+ Years in Business Required</span></div>
-                <div className="text-left"><span className="text-white">• 625 Credit Score</span></div>
-              </div>
-            </section>
-          </div>
-          {value && <FastApp fieldData={data} />}
-        </div>
-      </div>
+                <div className="col-span-2 mb-2 text-center text-kapitusblue text-xs font-bold">
+                    <Images src="/kapitus_logo_white.jpg" alt="logo" priority layout="intrinsic" width={300} height={80} />
+                </div>
+                <div className={`max-w-4xl fastapp-form m-auto ${trigger ? `opacity-50` : ``}`}>
+                    <div className="mt-2 px-8" style={{ background: "url(/fastAppBanner.jpeg) center center no-repeat" }}>
+                        <section className="md:px-20">
+                            <div>
+                                <h1 className="text-left"><span className="text-white text-xl font-bold">BUSINESS LOANS GET APPROVED FAST</span></h1>
+                                <h2 className="text-left"><span className="text-white text-xl font-bold">GET APPROVED FAST</span></h2>
+                            </div>
+                        </section>
+                        <section>
+                            <div className="md:pl-20 mt-4">
+                                <div className="text-left"><span className="text-white">• 250K in Average Annual Revenue Required</span></div>
+                                <div className="text-left"><span className="text-white">• 2+ Years in Business Required</span></div>
+                                <div className="text-left"><span className="text-white">• 625 Credit Score</span></div>
+                            </div>
+                        </section>
+                    </div>
+                    {value && <FastApp fieldData={data} />}
+                </div>
+                <div>
+                    <Footer />
+                </div>
+            </div>
         </>
     )
 }

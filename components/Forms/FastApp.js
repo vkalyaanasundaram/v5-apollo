@@ -293,7 +293,7 @@ export default function Applynow({
   }
 
   return ( 
-      <div className="max-w-4xl lg:m-auto bg-white p-8  md:-m-5">
+      <div className="max-w-4xl fastapp-form lg:m-auto bg-white p-8  md:-m-5">
         <hr className="divide-y border-1 border-green-600" />
         <div className="mb-6 text-center text-kapitus text-lg my-6 font-bold">BUSINESS INFORMATION</div>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data" autoComplete="off">

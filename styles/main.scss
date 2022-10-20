@@ -20,7 +20,9 @@ body {
 	overflow: auto;
 	padding: 0 10px;
 }
-
+.fastapp-form {
+	max-width: 53rem !important;
+}
 .content-page .wrap,
 .content-single .wrap,
 .content-index .wrap {
